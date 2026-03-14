@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'SPACE RENTAL', href: '/space-rental' },
   { label: 'ACCESS', href: '/access' },
   { label: 'NEWS', href: '/news' },
+  { label: 'CONTACT', href: '/contact' },
 ];
 
 export default function Header() {

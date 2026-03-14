@@ -1,0 +1,176 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
+
+const FIELD_LABELS: { key: keyof FormData; label: string }[] = [
+  { key: 'name',    label: 'お名前' },
+  { key: 'email',   label: 'メールアドレス' },
+  { key: 'phone',   label: '電話番号' },
+  { key: 'subject', label: 'お問い合わせ件名' },
+  { key: 'message', label: 'お問い合わせ内容' },
+];
+
+// ─── 送信完了画面 ──────────────────────────────
+function ThanksView() {
+  return (
+    <section className="bg-cream min-h-screen flex items-center justify-center py-16">
+      <div className="text-center px-6">
+        {/* チェックアイコン */}
+        <div className="w-16 h-16 rounded-full bg-[#C8552A]/10 flex items-center justify-center mx-auto mb-8">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#C8552A"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+
+        <h2 className="font-serif text-4xl sm:text-5xl font-bold text-charcoal tracking-widest mb-5">
+          Thank You
+        </h2>
+        <div className="w-10 h-px bg-charcoal/20 mx-auto mb-8" />
+        <p className="text-sm text-gray-500 leading-[2.2] mb-10">
+          お問い合わせを受け付けました。<br />
+          内容を確認のうえ、担当者よりご連絡いたします。
+        </p>
+
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.25em] text-[#C8552A] uppercase hover:opacity-70 transition-opacity duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          HOME へ戻る
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+// ─── 確認画面 ──────────────────────────────────
+export default function ContactConfirmPage() {
+  const router = useRouter();
+  const [form, setForm] = useState<FormData | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem('contactForm');
+    if (!stored) {
+      router.replace('/contact');
+      return;
+    }
+    setForm(JSON.parse(stored) as FormData);
+  }, [router]);
+
+  const handleSubmit = () => {
+    // ここに実際の送信処理（API call）を追加
+    sessionStorage.removeItem('contactForm');
+    setSubmitted(true);
+  };
+
+  if (submitted) return <ThanksView />;
+  if (!form) return null;
+
+  return (
+    <section className="bg-cream min-h-screen py-16 lg:py-20">
+      <div className="max-w-2xl mx-auto px-6 lg:px-8">
+
+        {/* ページヘッダー */}
+        <div className="text-center mb-14">
+          <h1 className="font-serif text-5xl sm:text-6xl font-bold text-charcoal tracking-widest mb-4">
+            CONFIRM
+          </h1>
+          <p className="text-sm text-gray-400 mb-6">
+            以下の内容でよろしいですか？
+          </p>
+          <div className="w-10 h-px bg-charcoal/20 mx-auto" />
+        </div>
+
+        {/* 入力内容確認テーブル */}
+        <div className="mb-12">
+          {FIELD_LABELS.filter(({ key }) => form[key]).map(({ key, label }, i, arr) => (
+            <div
+              key={key}
+              className={`flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8 py-5 ${
+                i < arr.length - 1 ? 'border-b border-charcoal/10' : ''
+              }`}
+            >
+              <span className="text-[11px] font-semibold tracking-[0.2em] text-gray-400 uppercase sm:w-36 shrink-0 pt-0.5">
+                {label}
+              </span>
+              <span className="text-sm text-charcoal leading-[1.8] whitespace-pre-wrap flex-1">
+                {form[key]}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <hr className="border-charcoal/10 mb-10" />
+
+        {/* ボタンエリア */}
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-center gap-6">
+
+          {/* ← 修正する */}
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.25em] text-charcoal/40 uppercase hover:text-charcoal transition-colors duration-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+            修正する
+          </Link>
+
+          {/* 送信する */}
+          <button
+            onClick={handleSubmit}
+            className="w-full max-w-xs bg-[#C8552A] text-white text-sm font-bold tracking-widest px-10 py-4 rounded-full hover:bg-[#a84020] transition-colors duration-200"
+          >
+            送信する
+          </button>
+
+        </div>
+      </div>
+    </section>
+  );
+}

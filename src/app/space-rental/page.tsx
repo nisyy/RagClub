@@ -122,7 +122,7 @@ function PageHeader() {
 
             {/* CTAボタン */}
             <Link
-              href="/access"
+              href="/contact"
               className="inline-flex items-center gap-2.5 bg-accent text-white text-sm font-semibold tracking-wide px-6 py-3 rounded-full hover:bg-red-800 transition-colors duration-200"
             >
               {/* メールアイコン */}

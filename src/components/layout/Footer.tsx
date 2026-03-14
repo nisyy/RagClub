@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Left: Contact */}
           <div>
             <Link
-              href="/access"
+              href="/contact"
               className="text-sm font-medium text-charcoal hover:text-accent transition-colors duration-200"
             >
               お問い合わせ
