@@ -9,7 +9,7 @@ function HeroSection() {
     // -mt-16 で layout の pt-16 を相殺し、固定ヘッダー背後までフルブリード
     <section className="relative -mt-16 min-h-screen flex items-center">
       <Image
-        src="https://placehold.co/1920x1080/2a2520/ffffff?text=CAFE+RAGCLUB"
+        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200"
         alt="RAGCLUB カフェ店内"
         fill
         className="object-cover"
@@ -47,7 +47,7 @@ function ConceptSection() {
           {/* 左：写真 */}
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
-              src="https://placehold.co/800x600/c8b99a/555555?text=Barista"
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200"
               alt="コーヒーを注ぐバリスタ"
               fill
               className="object-cover"
@@ -109,7 +109,7 @@ function MenuHighlightsSection() {
         {/* メイン写真 */}
         <div className="relative aspect-[16/9] max-w-3xl mx-auto overflow-hidden">
           <Image
-            src="https://placehold.co/1200x675/1a3a10/aaaaaa?text=Menu+Photo"
+            src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800"
             alt="メニュー写真"
             fill
             className="object-cover"
@@ -142,7 +142,7 @@ function MenuHighlightsSection() {
 // ─────────────────────────────────────────────
 const galleryItems = [
   {
-    src: 'https://placehold.co/600x750/3a3020/cccccc?text=Art+Work+1',
+    src: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800',
     alt: 'Chromatic Reverie',
     title: 'Harajuku / Jingu',
     tags: ['CAFE', 'GALLERY', 'TOKYO'],
@@ -151,7 +151,7 @@ const galleryItems = [
     aspect: 'aspect-[4/5]',
   },
   {
-    src: 'https://placehold.co/600x600/c8c0b0/666666?text=Art+Work+2',
+    src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=800',
     alt: 'Structure & Silence',
     title: 'Shibuya / Urban',
     tags: ['EXHIBITION', 'ART CORNER'],
@@ -223,17 +223,17 @@ function GallerySection() {
 // ─────────────────────────────────────────────
 const newsItems = [
   {
-    src: 'https://placehold.co/600x450/e0d8cc/888888?text=News+1',
+    src: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600',
     label: 'EVENTS · OCT 12, 2023',
     title: '朝活に、才内有志による自画像「#23 Vision」を開催します。',
   },
   {
-    src: 'https://placehold.co/600x450/d0c4b0/888888?text=News+2',
+    src: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600',
     label: 'MENU · OCT 20, 2023',
     title: '冬の新作「エスプレッソ・トリック w/ 山梨」が本日よりスタート。',
   },
   {
-    src: 'https://placehold.co/600x450/c8b89a/888888?text=News+3',
+    src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600',
     label: 'EVENT · OCT 28, 2023',
     title: 'スペースレンタX 平均の台付回数を迎えいたしました。',
   },

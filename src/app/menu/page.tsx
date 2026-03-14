@@ -11,19 +11,19 @@ export const metadata: Metadata = {
 // ─────────────────────────────────────────────
 const coffeeItems = [
   {
-    src: 'https://placehold.co/600x600/c8a066/ffffff?text=Signature+Latte',
+    src: 'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=800',
     name: 'シグネチャー・ラテ',
     price: '¥606',
     desc: '濃厚なエスプレッソとスチームミルクの完璧なバランス、きめ細かな泡を楽しめます。',
   },
   {
-    src: 'https://placehold.co/600x600/a07840/ffffff?text=Single+Origin+Drip',
+    src: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800',
     name: 'シングルオリジン・ドリップ',
     price: '¥720',
     desc: '厳選された豆を丁寧にハンドドリップ、豆本来の複雑な風味を引き出します。',
   },
   {
-    src: 'https://placehold.co/600x600/1a0e06/999999?text=Cold+Brew',
+    src: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=800',
     name: 'コールドブリュー',
     price: '¥556',
     desc: '18時間かけてじっくり抽出。雑味のない、なめらかで豊かな飲み味が特徴です。',
@@ -32,13 +32,13 @@ const coffeeItems = [
 
 const parfaitItems = [
   {
-    src: 'https://placehold.co/600x800/2e1e1e/cccccc?text=Berry+Parfait',
+    src: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800',
     name: 'ベリー・ブラッサム・パフェ',
     price: '¥1,320',
     desc: 'ワイルドベリー、マダガスカル産バニラビーンズクリーム、アーモンドクランブルを重ねて。',
   },
   {
-    src: 'https://placehold.co/600x800/161620/cccccc?text=Dark+Cacao+Gold',
+    src: 'https://images.unsplash.com/photo-1558326567-98ae2405596b?w=600',
     name: 'ダークカカオ & ゴールド',
     price: '¥1,540',
     desc: 'カカオ70%のダークチョコレートムース、シーソルトキャラメル、ローストヘーゼルナッツ。',
@@ -47,22 +47,22 @@ const parfaitItems = [
 
 const sweetsItems = [
   {
-    src: 'https://placehold.co/400x400/d4b478/555555?text=Croissant',
+    src: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600',
     name: 'バタークロワッサン',
     price: '¥480',
   },
   {
-    src: 'https://placehold.co/400x400/3a2010/cccccc?text=Cookie',
+    src: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600',
     name: 'チョコチャンククッキー',
     price: '¥331',
   },
   {
-    src: 'https://placehold.co/400x400/e0d4a0/555555?text=Lemon+Cake',
+    src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600',
     name: 'レモンポピーシード',
     price: '¥493',
   },
   {
-    src: 'https://placehold.co/400x400/f4d8c8/666666?text=Macaron',
+    src: 'https://images.unsplash.com/photo-1558326567-98ae2405596b?w=600',
     name: 'マカロンセット（3個）',
     price: '¥660',
   },
@@ -223,7 +223,7 @@ function SweetsLunchSection() {
           {/* 左：大きな写真 */}
           <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[400px]">
             <Image
-              src="https://placehold.co/800x600/4a5a32/cccccc?text=Muffin+Combo"
+              src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=800"
               alt="職人のマフィンコンボ"
               fill
               className="object-cover"

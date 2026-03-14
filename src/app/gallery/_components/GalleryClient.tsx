@@ -19,42 +19,42 @@ interface Artwork {
 const artworks: Artwork[] = [
   {
     id: 1,
-    src: 'https://placehold.co/600x600/c89868/ffffff?text=Botanical',
+    src: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800',
     title: 'Botanica No.3',
     artist: '坂本 将',
     status: 'available',
   },
   {
     id: 2,
-    src: 'https://placehold.co/600x600/78c890/111111?text=Chromatic+Flow',
+    src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=800',
     title: 'Chromatic Flow',
     artist: 'Elena Veronova',
     status: 'available',
   },
   {
     id: 3,
-    src: 'https://placehold.co/600x600/c8b880/444444?text=Desert+Geometry',
+    src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800',
     title: 'Desert Geometry',
     artist: 'Marcus Thorne',
     status: 'sold',
   },
   {
     id: 4,
-    src: 'https://placehold.co/600x600/1e3a3a/cccccc?text=Stillness',
+    src: 'https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=1200',
     title: 'Stillness',
     artist: 'S. Yamaguchi',
     status: 'available',
   },
   {
     id: 5,
-    src: 'https://placehold.co/600x600/d4904a/ffffff?text=Impasto+Study',
+    src: 'https://images.unsplash.com/photo-1560421683-6856ea585c78?w=600',
     title: 'Impasto Study',
     artist: '坂本 将',
     status: 'available',
   },
   {
     id: 6,
-    src: 'https://placehold.co/600x600/2a2a38/cccccc?text=Urban+Soul',
+    src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600',
     title: 'Urban Soul',
     artist: 'Marcus Thorne',
     status: 'sold',
@@ -213,7 +213,7 @@ function FeaturedArtist() {
           <div className="flex gap-3 w-full md:w-auto shrink-0">
             <div className="relative w-40 h-52 sm:w-48 sm:h-60 overflow-hidden rounded-sm">
               <Image
-                src="https://placehold.co/400x500/b8a890/555555?text=Artist+at+Work"
+                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600"
                 alt="坂本 将 - 制作中"
                 fill
                 className="object-cover"
@@ -221,7 +221,7 @@ function FeaturedArtist() {
             </div>
             <div className="relative w-40 h-52 sm:w-48 sm:h-60 overflow-hidden rounded-sm">
               <Image
-                src="https://placehold.co/400x500/d4b878/555555?text=Art+Tools"
+                src="https://images.unsplash.com/photo-1560421683-6856ea585c78?w=600"
                 alt="絵筆と道具"
                 fill
                 className="object-cover"

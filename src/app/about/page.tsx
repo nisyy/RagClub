@@ -15,7 +15,7 @@ function HeroSection() {
     // -mt-16 で layout の pt-16 を相殺 → 固定ヘッダーの背後までフルブリード
     <section className="relative -mt-16 h-[56vh] min-h-[360px] flex items-end">
       <Image
-        src="https://placehold.co/1920x1080/2a2520/cccccc?text=CAFE+RAGCLUB+Interior"
+        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200"
         alt="RAGCLUB カフェ店内"
         fill
         className="object-cover"
@@ -61,7 +61,7 @@ function MainConceptSection() {
       <div className="max-w-5xl mx-auto px-6 lg:px-10 mt-16">
         <div className="relative aspect-[16/9] overflow-hidden">
           <Image
-            src="https://placehold.co/1200x675/c8b89a/666666?text=Coffee+Barista"
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200"
             alt="コーヒーを注ぐバリスタ"
             fill
             className="object-cover"
@@ -121,7 +121,7 @@ function SplitArtSection() {
         {/* 左：アート写真（縦長） */}
         <div className="relative min-h-[480px] md:min-h-[580px] lg:min-h-[640px]">
           <Image
-            src="https://placehold.co/700x900/3a3222/bbbbbb?text=Art+Work"
+            src="https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=1200"
             alt="ギャラリーアート作品"
             fill
             className="object-cover"
@@ -180,7 +180,7 @@ function SplitCoffeeSection() {
         {/* 右：コーヒー写真 — モバイルでは先頭に */}
         <div className="relative min-h-[480px] md:min-h-[580px] lg:min-h-[640px] order-1 md:order-2">
           <Image
-            src="https://placehold.co/700x900/b89a72/555555?text=Coffee+Drinks"
+            src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=800"
             alt="コーヒードリンク"
             fill
             className="object-cover"

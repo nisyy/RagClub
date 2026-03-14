@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 // Data
 // ─────────────────────────────────────────────
 const atmospherePhotos = [
-  { src: 'https://placehold.co/600x600/e8e0d0/888888?text=Gallery+Space+1', alt: 'ギャラリー空間 1' },
-  { src: 'https://placehold.co/600x600/c8a878/555555?text=Coffee+Barista',  alt: 'バリスタ' },
-  { src: 'https://placehold.co/600x600/3a3222/bbbbbb?text=Art+Work+1',      alt: 'アート作品 1' },
-  { src: 'https://placehold.co/600x600/d8c8b0/666666?text=Art+Work+2',      alt: 'アート作品 2' },
-  { src: 'https://placehold.co/600x600/b89060/ffffff?text=Drinks+1',        alt: 'ドリンク 1' },
-  { src: 'https://placehold.co/600x600/a07840/ffffff?text=Drinks+2',        alt: 'ドリンク 2' },
+  { src: 'https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=1200', alt: 'ギャラリー空間 1' },
+  { src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200', alt: 'バリスタ' },
+  { src: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800',  alt: 'アート作品 1' },
+  { src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=800',      alt: 'アート作品 2' },
+  { src: 'https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=800',      alt: 'ドリンク 1' },
+  { src: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800',   alt: 'ドリンク 2' },
 ];
 
 const policies = [
@@ -138,7 +138,7 @@ function PageHeader() {
           {/* 右：ギャラリー写真 */}
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
-              src="https://placehold.co/800x600/f0ece4/aaaaaa?text=Gallery+Space"
+              src="https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=1200"
               alt="ギャラリースペース"
               fill
               className="object-cover"
