@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import type { AdminGalleryItem } from '@/types/admin';
 import FadeIn from '@/components/ui/FadeIn';
@@ -29,7 +30,7 @@ function PageHeader({
   onFilterChange: (f: FilterStatus) => void;
 }) {
   return (
-    <section className="bg-cream pt-14 pb-10 lg:pt-16 lg:pb-12">
+    <section className="bg-cream -mt-16 pt-[7.5rem] pb-10 lg:pt-32 lg:pb-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           {/* 左：タイトル + 説明文 */}
@@ -202,9 +203,12 @@ function SubmissionCTA() {
             私たちは、常に新しい視点を持つ作品を募集しています。
             応募は四半期ごとに行っています。
           </p>
-          <button className="inline-flex items-center justify-center bg-charcoal text-white text-sm font-semibold tracking-wider px-10 py-4 rounded-full hover:bg-charcoal/80 transition-colors duration-200">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center bg-charcoal text-white text-sm font-semibold tracking-wider px-10 py-4 rounded-full hover:bg-charcoal/80 transition-colors duration-200"
+          >
             応募する
-          </button>
+          </Link>
         </div>
       </FadeIn>
     </section>

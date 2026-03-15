@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="flex items-center justify-start sm:justify-end gap-4">
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/rug___club?igsh=b2oyNTY4bzBjeGR0"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"

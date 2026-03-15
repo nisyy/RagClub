@@ -41,7 +41,7 @@ function ItemImage({
 // ─────────────────────────────────────────────
 function PageHeader() {
   return (
-    <section className="bg-cream py-16 lg:py-20">
+    <section className="bg-cream -mt-16 pt-32 pb-16 lg:pt-36 lg:pb-20">
       <FadeIn>
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-bold text-charcoal tracking-tight">

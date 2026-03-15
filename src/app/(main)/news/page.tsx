@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // ─── ページヘッダー ────────────────────────────
 function PageHeader() {
   return (
-    <section className="bg-cream pt-14 pb-8 lg:pt-16 lg:pb-10">
+    <section className="bg-cream -mt-16 pt-[7.5rem] pb-8 lg:pt-32 lg:pb-10">
       <div className="max-w-3xl mx-auto px-6 lg:px-10">
         <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-bold text-charcoal leading-none tracking-tight">
           NEWS

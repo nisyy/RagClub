@@ -96,7 +96,7 @@ const policies = [
 // ─────────────────────────────────────────────
 function PageHeader() {
   return (
-    <section className="bg-cream py-16 lg:py-20">
+    <section className="bg-cream -mt-16 pt-32 pb-16 lg:pt-36 lg:pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* 左：テキストコンテンツ */}

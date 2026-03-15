@@ -26,7 +26,7 @@ function PageHeader() {
 // ─── Page ─────────────────────────────────────
 export default function ContactPage() {
   return (
-    <section className="bg-cream min-h-screen py-16 lg:py-20">
+    <section className="bg-cream min-h-screen -mt-16 pt-32 pb-16 lg:pt-36 lg:pb-20">
       <div className="max-w-2xl mx-auto px-6 lg:px-8">
         <PageHeader />
         <ContactForm />

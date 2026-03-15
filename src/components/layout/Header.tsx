@@ -98,7 +98,7 @@ export default function Header() {
             <div className="flex items-center gap-6">
               {/* Instagram */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/rug___club?igsh=b2oyNTY4bzBjeGR0"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

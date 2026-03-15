@@ -90,7 +90,7 @@ function InfoIcon() {
 // ─────────────────────────────────────────────
 function PageHeader() {
   return (
-    <section className="bg-cream pt-14 pb-8 lg:pt-16 lg:pb-10">
+    <section className="bg-cream -mt-16 pt-[7.5rem] pb-8 lg:pt-32 lg:pb-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-bold text-charcoal leading-none tracking-tight">
           ACCESS
@@ -143,9 +143,9 @@ function MainContent() {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-charcoal">
                   <span className="text-accent mt-0.5 shrink-0">
-                    <WalkIcon />
+                    <TrainIcon />
                   </span>
-                  Osaka Metro千日前線「新深江駅」徒歩約10分
+                  大阪メトロ 千日前線「新深江駅」徒歩約10分
                 </li>
               </ul>
             </div>
@@ -197,7 +197,7 @@ function MainContent() {
             {/* Google Maps iframe */}
             <div className="overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.234567890123!2d135.5566!3d34.6789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000f4b123456789%3A0xabcdef1234567890!2z5aSn6Ziq5bqc5p2x5aSn6Ziq5biC6aGM5Luj5YyW77yS77yR77yV4oiS77yR77yT!5e0!3m2!1sja!2sjp!4v1234567890"
+                src="https://maps.google.com/maps?q=大阪府東大阪市足代北2-15-22&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}

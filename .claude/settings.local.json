@@ -8,7 +8,11 @@
       "Bash(node -e \":*)",
       "Bash(npx next build)",
       "Bash(/Users/nishimurayasushiakira/ragclub/public/robots.txt:*)",
-      "Bash(xargs sed -i '' 's/RAGCLUB/RUG CLUB/g')"
+      "Bash(xargs sed -i '' 's/RAGCLUB/RUG CLUB/g')",
+      "Bash(python3 -c \":*)",
+      "Bash(/Users/nishimurayasushiakira/.nvm/versions/node/v20.20.1/bin/node /Users/nishimurayasushiakira/.nvm/versions/node/v20.20.1/bin/npm run build)",
+      "Bash(PATH=\"/Users/nishimurayasushiakira/.nvm/versions/node/v20.20.1/bin:$PATH\" node --version)",
+      "Bash(PATH=\"/Users/nishimurayasushiakira/.nvm/versions/node/v20.20.1/bin:$PATH\" npm run build)"
     ]
   }
 }
