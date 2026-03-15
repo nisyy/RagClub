@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import FadeIn from '@/components/ui/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'SPACE RENTAL | RAGCLUB CAFE',
+  title: 'SPACE RENTAL',
   description:
-    'Cafe RAGCLUBのスペースレンタル。展示会、ワークショップ、プライベートイベントにご利用いただけます。',
+    'Cafe RUG CLUBのスペースレンタル。展示会、ワークショップ、プライベートイベントにご利用いただけます。',
 };
 
 // ─────────────────────────────────────────────
@@ -72,7 +73,7 @@ const policies = [
       </svg>
     ),
     title: '保険',
-    body: 'Cafe RAGCLUBは施設全体の損害保険に加入していますが、個々の作品の盗難や破損に対する保険はアーティスト側で手配してください。',
+    body: 'Cafe RUG CLUBは施設全体の損害保険に加入していますが、個々の作品の盗難や破損に対する保険はアーティスト側で手配してください。',
   },
   {
     icon: (
@@ -99,52 +100,56 @@ function PageHeader() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* 左：テキストコンテンツ */}
-          <div>
-            {/* ラベル */}
-            <p className="flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] text-accent uppercase mb-5">
-              <span className="text-accent text-base leading-none">●</span>
-              Exhibition Opportunity
-            </p>
+          <FadeIn>
+            <div>
+              {/* ラベル */}
+              <p className="flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] text-accent uppercase mb-5">
+                <span className="text-accent text-base leading-none">●</span>
+                Exhibition Opportunity
+              </p>
 
-            {/* タイトル */}
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-5xl lg:text-6xl font-bold text-charcoal leading-tight mb-6">
-              SPACE{' '}
-              <span className="text-accent italic font-black">RENTAL</span>
-            </h1>
+              {/* タイトル */}
+              <h1 className="font-serif text-5xl sm:text-6xl md:text-5xl lg:text-6xl font-bold text-charcoal leading-tight mb-6">
+                SPACE{' '}
+                <span className="text-accent italic font-black">RENTAL</span>
+              </h1>
 
-            {/* 説明文 */}
-            <p className="text-sm text-gray-600 leading-[2] mb-8 max-w-sm">
-              高い天井と自然光が差し込むギャラリースペースで、展示会、ワークショップ、
-              プライベートイベントを開催しませんか。クリエイティブ地区の中心に位置する
-              Cafe RAGCLUBは、プロフェッショナルなアート展示と居心地の良い社交の場を
-              融合させたユニークな空間を提供します。
-            </p>
+              {/* 説明文 */}
+              <p className="text-sm text-gray-600 leading-[2] mb-8 max-w-sm">
+                高い天井と自然光が差し込むギャラリースペースで、展示会、ワークショップ、
+                プライベートイベントを開催しませんか。クリエイティブ地区の中心に位置する
+                Cafe RUG CLUBは、プロフェッショナルなアート展示と居心地の良い社交の場を
+                融合させたユニークな空間を提供します。
+              </p>
 
-            {/* CTAボタン */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2.5 bg-accent text-white text-sm font-semibold tracking-wide px-6 py-3 rounded-full hover:bg-red-800 transition-colors duration-200"
-            >
-              {/* メールアイコン */}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-              お問い合わせ
-            </Link>
-          </div>
+              {/* CTAボタン */}
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2.5 bg-accent text-white text-sm font-semibold tracking-wide px-6 py-3 rounded-full hover:bg-red-800 transition-colors duration-200"
+              >
+                {/* メールアイコン */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                お問い合わせ
+              </Link>
+            </div>
+          </FadeIn>
 
           {/* 右：ギャラリー写真 */}
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=1200"
-              alt="ギャラリースペース"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+          <FadeIn delay={120}>
+            <div className="relative aspect-[4/3] overflow-hidden group">
+              <Image
+                src="https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=1200"
+                alt="ギャラリースペース"
+                fill
+                className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                priority
+              />
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>
@@ -159,22 +164,26 @@ function AtmosphereSection() {
     <section className="bg-cream py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* セクションヘッダー */}
-        <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-charcoal">Atmosphere</h2>
-          <p className="text-sm text-gray-400 mt-1.5">店内の雰囲気</p>
-        </div>
+        <FadeIn>
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">Atmosphere</h2>
+            <p className="text-sm text-gray-400 mt-1.5">店内の雰囲気</p>
+          </div>
+        </FadeIn>
 
         {/* 3×2 フォトグリッド */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {atmospherePhotos.map((photo) => (
-            <div key={photo.alt} className="relative aspect-square overflow-hidden group">
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                className="object-cover group-hover:scale-[1.04] transition-transform duration-600"
-              />
-            </div>
+          {atmospherePhotos.map((photo, i) => (
+            <FadeIn key={photo.alt} delay={i * 70}>
+              <div className="relative aspect-square overflow-hidden group">
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover group-hover:scale-[1.04] transition-transform duration-600"
+                />
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>
@@ -190,24 +199,28 @@ function RentalPolicySection() {
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* セクションヘッダー */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-charcoal">Rental Policy</h2>
-          <p className="text-sm text-gray-400 mt-1.5">レンタル利用規約</p>
-        </div>
+        <FadeIn>
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">Rental Policy</h2>
+            <p className="text-sm text-gray-400 mt-1.5">レンタル利用規約</p>
+          </div>
+        </FadeIn>
 
         {/* 3×2 ポリシーカードグリッド */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-          {policies.map((policy) => (
-            <div key={policy.title}>
-              {/* アイコン（赤） */}
-              <div className="text-accent mb-4">
-                {policy.icon}
+          {policies.map((policy, i) => (
+            <FadeIn key={policy.title} delay={i * 80}>
+              <div>
+                {/* アイコン（赤） */}
+                <div className="text-accent mb-4">
+                  {policy.icon}
+                </div>
+                {/* タイトル */}
+                <h3 className="text-base font-bold text-charcoal mb-2">{policy.title}</h3>
+                {/* 説明文 */}
+                <p className="text-xs text-gray-500 leading-[2]">{policy.body}</p>
               </div>
-              {/* タイトル */}
-              <h3 className="text-base font-bold text-charcoal mb-2">{policy.title}</h3>
-              {/* 説明文 */}
-              <p className="text-xs text-gray-500 leading-[2]">{policy.body}</p>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </div>

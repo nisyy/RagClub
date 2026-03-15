@@ -6,9 +6,9 @@ import { DEMO_GALLERY } from '@/lib/demoData';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'GALLERY | RAGCLUB CAFE',
+  title: 'GALLERY',
   description:
-    'Cafe RAGCLUBで現在展示中のユニークな作品をご覧ください。地元のインディペンデント・アーティストを支援しています。',
+    'Cafe RUG CLUBで現在展示中のユニークな作品をご覧ください。地元のインディペンデント・アーティストを支援しています。',
 };
 
 export default async function GalleryPage() {

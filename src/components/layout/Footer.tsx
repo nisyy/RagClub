@@ -95,7 +95,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="py-5">
           <p className="text-xs text-slate-400">
-            © 2026 CAFE RAGCLUB.
+            © 2026 CAFE RUG CLUB.
           </p>
         </div>
       </div>

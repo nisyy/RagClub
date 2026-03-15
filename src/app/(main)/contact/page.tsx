@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import ContactForm from './_components/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'CONTACT | RAGCLUB CAFE',
+  title: 'CONTACT',
   description:
-    'Cafe RAGCLUBへのお問い合わせはこちら。カフェ・スペースレンタル・展示についてお気軽にご連絡ください。',
+    'Cafe RUG CLUBへのお問い合わせはこちら。カフェ・スペースレンタル・展示についてお気軽にご連絡ください。',
 };
 
 // ─── Page header ──────────────────────────────

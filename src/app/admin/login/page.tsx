@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* ロゴ */}
         <div className="text-center mb-10">
-          <h1 className="text-2xl font-bold tracking-widest text-white">RAGCLUB</h1>
+          <h1 className="text-2xl font-bold tracking-widest text-white">RUG CLUB</h1>
           <p className="text-xs text-gray-500 tracking-[0.3em] uppercase mt-1">Admin Panel</p>
         </div>
 
@@ -91,7 +91,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-[11px] text-gray-600 mt-6">
-          RAGCLUB CAFE © 2026
+          RUG CLUB CAFE © 2026
         </p>
       </div>
     </div>

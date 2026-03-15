@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ACCESS | RAGCLUB CAFE',
+  title: 'ACCESS',
   description:
-    'RAGCLUBカフェへのアクセス情報。住所・交通アクセス・営業時間。大阪府東大阪市足代北2-15-22',
+    'RUG CLUBカフェへのアクセス情報。住所・交通アクセス・営業時間。大阪府東大阪市足代北2-15-22',
 };
 
 // ─────────────────────────────────────────────
@@ -204,7 +204,7 @@ function MainContent() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="RAGCLUB CAFE 地図"
+                title="RUG CLUB CAFE 地図"
               />
             </div>
 

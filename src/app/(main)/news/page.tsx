@@ -6,8 +6,8 @@ import { DEMO_NEWS } from '@/lib/demoData';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'NEWS | RAGCLUB CAFE',
-  description: 'Cafe RAGCLUBの最新ニュース・イベント情報をお届けします。',
+  title: 'NEWS',
+  description: 'Cafe RUG CLUBの最新ニュース・イベント情報をお届けします。',
 };
 
 // ─── ページヘッダー ────────────────────────────

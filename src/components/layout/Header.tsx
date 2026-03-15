@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <>
       {/* ─── Fixed header bar ─── */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-cream">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between h-16">
             <Logo />
@@ -41,9 +41,9 @@ export default function Header() {
               aria-expanded={isOpen}
               className="flex flex-col justify-center items-center w-10 h-10 gap-[5px]"
             >
-              <span className="block w-6 h-[2px] bg-charcoal" />
-              <span className="block w-6 h-[2px] bg-charcoal" />
-              <span className="block w-6 h-[2px] bg-charcoal" />
+              <span className="block w-6 h-[2px] bg-white drop-shadow" />
+              <span className="block w-6 h-[2px] bg-white drop-shadow" />
+              <span className="block w-6 h-[2px] bg-white drop-shadow" />
             </button>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default async function AdminDashboard() {
       {/* ヘッダー */}
       <header className="bg-gray-900 border-b border-gray-800 px-6 py-4 flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-bold text-white tracking-widest">RAGCLUB</h1>
+          <h1 className="text-lg font-bold text-white tracking-widest">RUG CLUB</h1>
           <p className="text-[11px] text-gray-500 tracking-[0.3em] uppercase">Admin Panel</p>
         </div>
         <div className="flex items-center gap-4">
@@ -90,7 +90,7 @@ export default async function AdminDashboard() {
           <h3 className="text-sm font-semibold text-gray-300 mb-3">はじめに</h3>
           <ul className="space-y-1.5 text-xs text-gray-500 leading-relaxed">
             <li>• Notionデータベースと連携してコンテンツを管理します。</li>
-            <li>• 画像アップロードはVercel Blobを使用します。</li>
+            <li>• 画像アップロードはFirebase Storageを使用します。</li>
             <li>• 削除したアイテムはNotionのアーカイブに移動します。</li>
           </ul>
         </div>

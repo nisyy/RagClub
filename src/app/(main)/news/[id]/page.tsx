@@ -28,9 +28,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const item = await resolveItem(id);
-  if (!item) return { title: 'NEWS | RAGCLUB CAFE' };
+  if (!item) return { title: 'NEWS | RUG CLUB CAFE' };
   return {
-    title: `${item.shortTitle || item.title} | RAGCLUB CAFE`,
+    title: `${item.shortTitle || item.title} | RUG CLUB CAFE`,
     description: item.body?.slice(0, 80) ?? '',
   };
 }

@@ -19,7 +19,7 @@ export default function AdminHeader() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
         {/* ロゴ */}
         <Link href="/admin" className="shrink-0">
-          <span className="text-sm font-bold tracking-widest text-white">RAGCLUB</span>
+          <span className="text-sm font-bold tracking-widest text-white">RUG CLUB</span>
           <span className="text-[10px] text-gray-500 tracking-[0.3em] uppercase ml-2">Admin</span>
         </Link>
 

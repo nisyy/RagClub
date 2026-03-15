@@ -3,12 +3,13 @@ import type { Metadata } from 'next';
 import { getMenuItems } from '@/lib/notion';
 import { DEMO_MENU } from '@/lib/demoData';
 import type { AdminMenuItem } from '@/types/admin';
+import FadeIn from '@/components/ui/FadeIn';
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'MENU | RAGCLUB CAFE',
-  description: 'RAGCLUBのメニュー。淹れたてコーヒー、職人技のパフェ、季節のスイーツ。',
+  title: 'MENU',
+  description: 'RUG CLUBのメニュー。淹れたてコーヒー、職人技のパフェ、季節のスイーツ。',
 };
 
 // ─────────────────────────────────────────────
@@ -30,7 +31,7 @@ function ItemImage({
       src={src || FALLBACK}
       alt={alt}
       fill
-      className={className ?? 'object-cover hover:scale-[1.03] transition-transform duration-500'}
+      className={className ?? 'object-cover group-hover:scale-[1.04] transition-transform duration-500'}
     />
   );
 }
@@ -41,16 +42,18 @@ function ItemImage({
 function PageHeader() {
   return (
     <section className="bg-cream py-16 lg:py-20">
-      <div className="max-w-2xl mx-auto px-6 text-center">
-        <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-bold text-charcoal tracking-tight">
-          MENU
-        </h1>
-        <div className="w-14 h-px bg-accent mx-auto my-5" />
-        <p className="text-sm text-gray-500 leading-relaxed max-w-sm mx-auto">
-          淹れたてのコーヒー、職人技が光るパフェ、そして情熱を込めて手作りされた
-          季節のスイーツをご用意しております。
-        </p>
-      </div>
+      <FadeIn>
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <h1 className="font-serif text-7xl md:text-8xl lg:text-9xl font-bold text-charcoal tracking-tight">
+            MENU
+          </h1>
+          <div className="w-14 h-px bg-accent mx-auto my-5" />
+          <p className="text-sm text-gray-500 leading-relaxed max-w-sm mx-auto">
+            淹れたてのコーヒー、職人技が光るパフェ、そして情熱を込めて手作りされた
+            季節のスイーツをご用意しております。
+          </p>
+        </div>
+      </FadeIn>
     </section>
   );
 }
@@ -63,27 +66,31 @@ function CoffeeSection({ items }: { items: AdminMenuItem[] }) {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-charcoal">Coffee</h2>
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-gray-400 uppercase mt-1.5">
-            THE ART OF EXTRACTION
-          </p>
-        </div>
+        <FadeIn>
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">Coffee</h2>
+            <p className="text-[11px] font-semibold tracking-[0.3em] text-gray-400 uppercase mt-1.5">
+              THE ART OF EXTRACTION
+            </p>
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item) => (
-            <article key={item.id}>
-              <div className="relative aspect-square overflow-hidden mb-4">
-                <ItemImage src={item.imageUrl} alt={item.name} />
-              </div>
-              <div className="flex items-baseline justify-between mb-2">
-                <h3 className="text-sm font-bold text-charcoal leading-snug">{item.name}</h3>
-                <span className="text-sm font-bold text-accent shrink-0 ml-3">{item.price}</span>
-              </div>
-              {item.description && (
-                <p className="text-xs text-gray-500 leading-[1.9]">{item.description}</p>
-              )}
-            </article>
+          {items.map((item, i) => (
+            <FadeIn key={item.id} delay={i * 80}>
+              <article className="group">
+                <div className="relative aspect-square overflow-hidden mb-4">
+                  <ItemImage src={item.imageUrl} alt={item.name} />
+                </div>
+                <div className="flex items-baseline justify-between mb-2">
+                  <h3 className="text-sm font-bold text-charcoal leading-snug">{item.name}</h3>
+                  <span className="text-sm font-bold text-accent shrink-0 ml-3">{item.price}</span>
+                </div>
+                {item.description && (
+                  <p className="text-xs text-gray-500 leading-[1.9]">{item.description}</p>
+                )}
+              </article>
+            </FadeIn>
           ))}
         </div>
       </div>
@@ -99,25 +106,29 @@ function ParfaitsSection({ items }: { items: AdminMenuItem[] }) {
   return (
     <section className="bg-forest py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Parfaits</h2>
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-white/40 uppercase mt-2">
-            SWEET SCULPTURES
-          </p>
-        </div>
+        <FadeIn>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Parfaits</h2>
+            <p className="text-[11px] font-semibold tracking-[0.3em] text-white/40 uppercase mt-2">
+              SWEET SCULPTURES
+            </p>
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          {items.map((item) => (
-            <article key={item.id}>
-              <div className="relative aspect-[3/4] overflow-hidden mb-5">
-                <ItemImage src={item.imageUrl} alt={item.name} />
-              </div>
-              <h3 className="text-base font-bold text-white leading-snug mb-2">{item.name}</h3>
-              {item.description && (
-                <p className="text-xs text-white/60 leading-[1.9] mb-3">{item.description}</p>
-              )}
-              <p className="text-sm font-bold text-accent">{item.price}</p>
-            </article>
+          {items.map((item, i) => (
+            <FadeIn key={item.id} delay={i * 120}>
+              <article className="group">
+                <div className="relative aspect-[3/4] overflow-hidden mb-5">
+                  <ItemImage src={item.imageUrl} alt={item.name} />
+                </div>
+                <h3 className="text-base font-bold text-white leading-snug mb-2">{item.name}</h3>
+                {item.description && (
+                  <p className="text-xs text-white/60 leading-[1.9] mb-3">{item.description}</p>
+                )}
+                <p className="text-sm font-bold text-accent">{item.price}</p>
+              </article>
+            </FadeIn>
           ))}
         </div>
       </div>
@@ -142,68 +153,74 @@ function SweetsLunchSection({
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-charcoal">
-            Sweets &amp; Lunch
-          </h2>
-          <p className="text-[11px] font-semibold tracking-[0.3em] text-gray-400 uppercase mt-1.5">
-            CRAFTED DAILY
-          </p>
-        </div>
+        <FadeIn>
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">
+              Sweets &amp; Lunch
+            </h2>
+            <p className="text-[11px] font-semibold tracking-[0.3em] text-gray-400 uppercase mt-1.5">
+              CRAFTED DAILY
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Sweets grid */}
         {sweetsItems.length > 0 && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 mb-16">
-            {sweetsItems.map((item) => (
-              <article key={item.id} className="group">
-                <div className="relative aspect-square overflow-hidden mb-3">
-                  <ItemImage
-                    src={item.imageUrl}
-                    alt={item.name}
-                    className="object-cover group-hover:scale-[1.04] transition-transform duration-500"
-                  />
-                </div>
-                <h3 className="text-xs font-semibold text-charcoal leading-snug mb-1">
-                  {item.name}
-                </h3>
-                <p className="text-xs font-bold text-accent">{item.price}</p>
-              </article>
+            {sweetsItems.map((item, i) => (
+              <FadeIn key={item.id} delay={i * 70}>
+                <article className="group">
+                  <div className="relative aspect-square overflow-hidden mb-3">
+                    <ItemImage
+                      src={item.imageUrl}
+                      alt={item.name}
+                      className="object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                    />
+                  </div>
+                  <h3 className="text-xs font-semibold text-charcoal leading-snug mb-1">
+                    {item.name}
+                  </h3>
+                  <p className="text-xs font-bold text-accent">{item.price}</p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         )}
 
         {/* Featured Lunch card */}
         {featuredLunch && (
-          <div className="grid grid-cols-1 md:grid-cols-2 border border-gray-100">
-            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[400px]">
-              <ItemImage
-                src={featuredLunch.imageUrl}
-                alt={featuredLunch.name}
-                className="object-cover"
-              />
-            </div>
-            <div className="flex items-center px-8 sm:px-12 lg:px-14 py-12 bg-white">
-              <div>
-                <span className="inline-block text-[10px] font-bold tracking-[0.25em] text-charcoal/70 border border-charcoal/25 px-3 py-1 mb-5 uppercase">
-                  LUNCH SPECIAL
-                </span>
-                <h3 className="text-2xl md:text-3xl font-bold text-charcoal leading-snug mb-4">
-                  {featuredLunch.name}
-                </h3>
-                {featuredLunch.description && (
-                  <p className="text-sm text-gray-500 leading-[2] mb-8">
-                    {featuredLunch.description}
+          <FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 border border-gray-100">
+              <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[400px] overflow-hidden group">
+                <ItemImage
+                  src={featuredLunch.imageUrl}
+                  alt={featuredLunch.name}
+                  className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                />
+              </div>
+              <div className="flex items-center px-8 sm:px-12 lg:px-14 py-12 bg-white">
+                <div>
+                  <span className="inline-block text-[10px] font-bold tracking-[0.25em] text-charcoal/70 border border-charcoal/25 px-3 py-1 mb-5 uppercase">
+                    LUNCH SPECIAL
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-bold text-charcoal leading-snug mb-4">
+                    {featuredLunch.name}
+                  </h3>
+                  {featuredLunch.description && (
+                    <p className="text-sm text-gray-500 leading-[2] mb-8">
+                      {featuredLunch.description}
+                    </p>
+                  )}
+                  <p className="text-3xl md:text-4xl font-black text-charcoal mb-2">
+                    {featuredLunch.price}
                   </p>
-                )}
-                <p className="text-3xl md:text-4xl font-black text-charcoal mb-2">
-                  {featuredLunch.price}
-                </p>
-                <p className="text-[10px] font-semibold tracking-[0.2em] text-gray-400 uppercase">
-                  SET PRICE INCLUDES DRINK AND SALAD
-                </p>
+                  <p className="text-[10px] font-semibold tracking-[0.2em] text-gray-400 uppercase">
+                    SET PRICE INCLUDES DRINK AND SALAD
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         )}
       </div>
     </section>
