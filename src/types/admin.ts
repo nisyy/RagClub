@@ -1,0 +1,27 @@
+export interface AdminMenuItem {
+  id: string;
+  name: string;
+  category: 'Coffee' | 'Parfait' | 'Sweets' | 'Lunch';
+  price: string;
+  description: string;
+  imageUrl: string;
+}
+
+export interface AdminNewsItem {
+  id: string;
+  title: string;
+  shortTitle: string;
+  date: string;
+  body: string;
+  thumbnailUrl: string;
+  heroUrl: string;
+  category: string;
+}
+
+export interface AdminGalleryItem {
+  id: string;
+  title: string;
+  artist: string;
+  imageUrl: string;
+  status: 'available' | 'sold';
+}

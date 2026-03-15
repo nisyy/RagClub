@@ -4,7 +4,9 @@
       "Bash(npm run build)",
       "Bash(npx --node-options=--max-old-space-size=4096 next build)",
       "Bash(node --version)",
-      "Bash(npx tsc --noEmit)"
+      "Bash(npx tsc --noEmit)",
+      "Bash(node -e \":*)",
+      "Bash(npx next build)"
     ]
   }
 }

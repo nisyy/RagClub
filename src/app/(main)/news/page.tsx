@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 import NewsListClient from './_components/NewsListClient';
+import { getNewsItems } from '@/lib/notion';
+import { DEMO_NEWS } from '@/lib/demoData';
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'NEWS | RAGCLUB CAFE',
@@ -22,12 +26,14 @@ function PageHeader() {
 }
 
 // ─── Page ─────────────────────────────────────
-export default function NewsPage() {
+export default async function NewsPage() {
+  const notionItems = await getNewsItems();
+  const items = notionItems.length > 0 ? notionItems : DEMO_NEWS;
   return (
     <>
       <PageHeader />
       {/* useState を使うリスト+ページネーションはクライアントコンポーネントに委譲 */}
-      <NewsListClient />
+      <NewsListClient items={items} />
     </>
   );
 }

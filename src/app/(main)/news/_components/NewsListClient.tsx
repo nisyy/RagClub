@@ -3,10 +3,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { newsItems } from '../_data';
+import type { AdminNewsItem } from '@/types/admin';
 
 const ITEMS_PER_PAGE = 5;
-const TOTAL_PAGES = 3; // 見た目上のページ数（UIデモ）
+const FALLBACK_THUMB = 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600';
+
+// Notion returns "2026-03-08" → display as "2026.03.08"
+function formatDate(iso: string): string {
+  return iso.replace(/-/g, '.');
+}
 
 // ─── 矢印アイコン ──────────────────────────────
 function ChevronRight({ className }: { className?: string }) {
@@ -30,12 +35,12 @@ function ChevronRight({ className }: { className?: string }) {
 }
 
 // ─── ニュースリスト ────────────────────────────
-export default function NewsListClient() {
+export default function NewsListClient({ items }: { items: AdminNewsItem[] }) {
   const [currentPage, setCurrentPage] = useState(1);
 
-  // ページに応じてアイテムをスライス（page 1 = items 1–5）
+  const totalPages = Math.max(1, Math.ceil(items.length / ITEMS_PER_PAGE));
   const start = (currentPage - 1) * ITEMS_PER_PAGE;
-  const pageItems = newsItems.slice(start, start + ITEMS_PER_PAGE);
+  const pageItems = items.slice(start, start + ITEMS_PER_PAGE);
 
   return (
     <>
@@ -53,7 +58,7 @@ export default function NewsListClient() {
                     {/* サムネイル */}
                     <div className="relative w-20 h-20 shrink-0 overflow-hidden">
                       <Image
-                        src={item.thumbSrc}
+                        src={item.thumbnailUrl || FALLBACK_THUMB}
                         alt={item.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -63,7 +68,7 @@ export default function NewsListClient() {
                     {/* 日付 + タイトル */}
                     <div className="flex-1 min-w-0">
                       <p className="text-[11px] font-semibold text-accent tracking-wider mb-1.5">
-                        {item.date}
+                        {formatDate(item.date)}
                       </p>
                       <h2 className="text-base font-semibold text-charcoal leading-snug group-hover:text-accent transition-colors duration-200">
                         {item.title}
@@ -81,42 +86,43 @@ export default function NewsListClient() {
             </ul>
           ) : (
             <p className="text-sm text-gray-400 text-center py-20">
-              このページには記事がありません。
+              記事がありません。
             </p>
           )}
         </div>
       </section>
 
       {/* ── ページネーション ── */}
-      <section className="bg-cream pb-20 lg:pb-28">
-        <div className="flex items-center justify-center gap-2">
-          {/* ページ番号ボタン */}
-          {Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1).map((page) => (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              aria-label={`${page}ページ目`}
-              aria-current={currentPage === page ? 'page' : undefined}
-              className={`w-10 h-10 rounded-full text-sm font-semibold transition-colors duration-200 ${
-                currentPage === page
-                  ? 'bg-charcoal text-white'
-                  : 'bg-white text-charcoal border border-charcoal/20 hover:border-charcoal/50'
-              }`}
-            >
-              {page}
-            </button>
-          ))}
+      {totalPages > 1 && (
+        <section className="bg-cream pb-20 lg:pb-28">
+          <div className="flex items-center justify-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                aria-label={`${page}ページ目`}
+                aria-current={currentPage === page ? 'page' : undefined}
+                className={`w-10 h-10 rounded-full text-sm font-semibold transition-colors duration-200 ${
+                  currentPage === page
+                    ? 'bg-charcoal text-white'
+                    : 'bg-white text-charcoal border border-charcoal/20 hover:border-charcoal/50'
+                }`}
+              >
+                {page}
+              </button>
+            ))}
 
-          {/* 次へボタン */}
-          <button
-            onClick={() => setCurrentPage((p) => Math.min(p + 1, TOTAL_PAGES))}
-            aria-label="次のページ"
-            className="w-10 h-10 rounded-full bg-white text-charcoal border border-charcoal/20 hover:border-charcoal/50 text-sm font-semibold flex items-center justify-center transition-colors duration-200"
-          >
-            <ChevronRight />
-          </button>
-        </div>
-      </section>
+            {/* 次へボタン */}
+            <button
+              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+              aria-label="次のページ"
+              className="w-10 h-10 rounded-full bg-white text-charcoal border border-charcoal/20 hover:border-charcoal/50 text-sm font-semibold flex items-center justify-center transition-colors duration-200"
+            >
+              <ChevronRight />
+            </button>
+          </div>
+        </section>
+      )}
     </>
   );
 }

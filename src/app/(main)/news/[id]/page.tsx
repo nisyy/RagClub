@@ -2,25 +2,36 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { newsItems } from '../_data';
+import { getNewsItemById } from '@/lib/notion';
+import { DEMO_NEWS } from '@/lib/demoData';
 
-// ─── Static Params ────────────────────────────
-export function generateStaticParams() {
-  return newsItems.map(({ id }) => ({ id: String(id) }));
+export const revalidate = 60;
+
+const FALLBACK_HERO = 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200';
+
+// Notion returns "2026-03-08" → display as "2026.03.08"
+function formatDate(iso: string): string {
+  return iso.replace(/-/g, '.');
 }
 
 // ─── Dynamic Metadata ─────────────────────────
+async function resolveItem(id: string) {
+  const notionItem = await getNewsItemById(id);
+  if (notionItem) return notionItem;
+  return DEMO_NEWS.find((d) => d.id === id) ?? null;
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const item = newsItems.find((n) => n.id === Number(id));
+  const item = await resolveItem(id);
   if (!item) return { title: 'NEWS | RAGCLUB CAFE' };
   return {
-    title: `${item.shortTitle} | RAGCLUB CAFE`,
-    description: item.body[0]?.slice(0, 80),
+    title: `${item.shortTitle || item.title} | RAGCLUB CAFE`,
+    description: item.body?.slice(0, 80) ?? '',
   };
 }
 
@@ -31,9 +42,14 @@ export default async function NewsDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const item = newsItems.find((n) => n.id === Number(id));
+  const item = await resolveItem(id);
 
   if (!item) notFound();
+
+  // Body is stored as a single string; split on newline for paragraphs
+  const paragraphs = item.body
+    ? item.body.split('\n').filter((p) => p.trim().length > 0)
+    : [];
 
   return (
     <section className="bg-cream min-h-screen py-14 lg:py-16">
@@ -64,19 +80,19 @@ export default async function NewsDetailPage({
 
         {/* カテゴリ + 日付ラベル */}
         <p className="text-[11px] font-bold tracking-[0.3em] text-accent uppercase mb-3">
-          {item.category} — {item.date}
+          {item.category} — {formatDate(item.date)}
         </p>
 
         {/* タイトル */}
         <h1 className="text-3xl md:text-4xl font-bold text-charcoal leading-snug mb-8">
-          {item.shortTitle}
+          {item.shortTitle || item.title}
         </h1>
 
         {/* ヒーロー画像 */}
         <div className="relative aspect-[16/10] overflow-hidden mb-10">
           <Image
-            src={item.heroSrc}
-            alt={item.shortTitle}
+            src={item.heroUrl || FALLBACK_HERO}
+            alt={item.shortTitle || item.title}
             fill
             className="object-cover"
             priority
@@ -84,16 +100,18 @@ export default async function NewsDetailPage({
         </div>
 
         {/* 本文段落 */}
-        <div className="space-y-6">
-          {item.body.map((para, i) => (
-            <p
-              key={i}
-              className="text-sm text-charcoal leading-[2] tracking-wide"
-            >
-              {para}
-            </p>
-          ))}
-        </div>
+        {paragraphs.length > 0 && (
+          <div className="space-y-6">
+            {paragraphs.map((para, i) => (
+              <p
+                key={i}
+                className="text-sm text-charcoal leading-[2] tracking-wide"
+              >
+                {para}
+              </p>
+            ))}
+          </div>
+        )}
 
         {/* ALL NEWS LIST → */}
         <div className="mt-20 pt-10 border-t border-charcoal/10">
